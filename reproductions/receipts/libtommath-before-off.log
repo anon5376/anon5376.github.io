@@ -1,0 +1,189 @@
+COMMAND ["cmake", "-S", "$COLLECTION/libtommath-parent", "-B", "$WORK/libtommath-before-off/build", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TESTING=OFF", "-DLIBTOMMATH_SOURCE=$WORK/libtommath/before/source", "-DBUILD_SHARED_LIBS=OFF", "-DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON", "-DCMAKE_INSTALL_PREFIX=$WORK/libtommath-before-off/install"]
+-- The C compiler identification is AppleClang 21.0.0.21000099
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Use -git suffix
+-- CPack: packages will be generated under $WORK/libtommath-before-off/build/packages/Darwin/
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORK/libtommath-before-off/build
+EXIT 0
+COMMAND ["cmake", "--build", "$WORK/libtommath-before-off/build", "--parallel", "4"]
+[  0%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_add.c.o
+[  0%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_2expt.c.o
+[  2%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_abs.c.o
+[  2%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_add_d.c.o
+[  4%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_and.c.o
+[  4%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_addmod.c.o
+[  4%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_clamp.c.o
+[  4%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_clear.c.o
+[  5%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_cmp.c.o
+[  5%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_cmp_d.c.o
+[  6%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_clear_multi.c.o
+[  7%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_cmp_mag.c.o
+[  8%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_cnt_lsb.c.o
+[  8%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_complement.c.o
+[  9%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_copy.c.o
+[  9%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_count_bits.c.o
+[ 10%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_cutoffs.c.o
+[ 10%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_div_2.c.o
+[ 12%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_div.c.o
+[ 12%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_div_2d.c.o
+[ 12%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_div_d.c.o
+[ 13%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_dr_is_modulus.c.o
+[ 13%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_dr_setup.c.o
+[ 14%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_dr_reduce.c.o
+[ 16%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_error_to_string.c.o
+[ 16%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_exch.c.o
+[ 16%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_expt_n.c.o
+[ 17%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_exptmod.c.o
+[ 17%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_exteuclid.c.o
+[ 18%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_fread.c.o
+[ 19%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_from_sbin.c.o
+[ 19%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_from_ubin.c.o
+[ 20%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_fwrite.c.o
+[ 20%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_gcd.c.o
+[ 21%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_double.c.o
+[ 22%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_i32.c.o
+[ 22%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_i64.c.o
+[ 23%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_l.c.o
+[ 24%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_mag_u32.c.o
+[ 24%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_mag_u64.c.o
+[ 25%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_get_mag_ul.c.o
+[ 25%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_grow.c.o
+[ 26%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_hash.c.o
+[ 27%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init.c.o
+[ 27%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_copy.c.o
+[ 28%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_i32.c.o
+[ 29%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_i64.c.o
+[ 29%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_l.c.o
+[ 30%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_multi.c.o
+[ 30%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_set.c.o
+[ 31%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_size.c.o
+[ 32%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_u32.c.o
+[ 33%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_u64.c.o
+[ 33%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_init_ul.c.o
+[ 34%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_invmod.c.o
+[ 34%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_is_square.c.o
+[ 35%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_lcm.c.o
+[ 35%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_kronecker.c.o
+[ 36%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_log.c.o
+[ 37%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_log_n.c.o
+[ 37%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_lshd.c.o
+[ 38%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mod.c.o
+[ 39%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_montgomery_calc_normalization.c.o
+[ 39%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mod_2d.c.o
+[ 40%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_montgomery_reduce.c.o
+[ 40%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_montgomery_setup.c.o
+[ 40%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mul_2.c.o
+[ 41%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mul.c.o
+[ 42%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mul_2d.c.o
+[ 43%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mul_d.c.o
+[ 43%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_mulmod.c.o
+[ 44%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_neg.c.o
+[ 44%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_pack.c.o
+[ 46%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_or.c.o
+[ 46%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_pack_count.c.o
+[ 46%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_fermat.c.o
+[ 48%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_frobenius_underwood.c.o
+[ 48%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_is_prime.c.o
+[ 48%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_miller_rabin.c.o
+[ 49%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_next_prime.c.o
+[ 50%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_rabin_miller_trials.c.o
+[ 50%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_rand.c.o
+[ 51%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_prime_strong_lucas_selfridge.c.o
+[ 51%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_radix_size.c.o
+[ 52%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_radix_size_overestimate.c.o
+[ 53%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_rand.c.o
+[ 53%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_rand_source.c.o
+[ 54%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_read_radix.c.o
+[ 54%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce.c.o
+[ 55%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_2k.c.o
+[ 56%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_2k_l.c.o
+[ 56%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_2k_setup.c.o
+[ 57%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_2k_setup_l.c.o
+[ 58%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_is_2k.c.o
+[ 58%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_is_2k_l.c.o
+[ 59%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_reduce_setup.c.o
+[ 59%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_root_n.c.o
+[ 60%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_rshd.c.o
+[ 60%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set.c.o
+[ 61%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sbin_size.c.o
+[ 62%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_double.c.o
+[ 64%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_i32.c.o
+[ 64%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_i64.c.o
+[ 64%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_l.c.o
+[ 64%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_u32.c.o
+[ 65%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_u64.c.o
+[ 65%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_shrink.c.o
+[ 66%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_set_ul.c.o
+[ 67%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_signed_rsh.c.o
+[ 67%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sqrmod.c.o
+[ 68%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sqrt.c.o
+[ 69%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sqrtmod_prime.c.o
+[ 69%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sub.c.o
+[ 70%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_sub_d.c.o
+[ 70%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_submod.c.o
+[ 71%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_to_radix.c.o
+[ 72%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_to_sbin.c.o
+[ 72%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_to_ubin.c.o
+[ 73%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_ubin_size.c.o
+[ 74%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_unpack.c.o
+[ 74%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_warray_free.c.o
+[ 75%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_zero.c.o
+[ 75%] Building C object libtommath/CMakeFiles/libtommath.dir/mp_xor.c.o
+[ 76%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_add.c.o
+[ 77%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_copy_digs.c.o
+[ 77%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_div_3.c.o
+[ 78%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_div_recursive.c.o
+[ 79%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_div_school.c.o
+[ 79%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_div_small.c.o
+[ 80%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_exptmod.c.o
+[ 80%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_exptmod_fast.c.o
+[ 81%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_fp_log.c.o
+[ 82%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_fp_log_d.c.o
+[ 82%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_get_bit.c.o
+[ 83%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_invmod_odd.c.o
+[ 83%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_invmod.c.o
+[ 84%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_log_2expt.c.o
+[ 85%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_montgomery_reduce_comba.c.o
+[ 85%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul.c.o
+[ 86%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_balance.c.o
+[ 87%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_comba.c.o
+[ 87%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_high.c.o
+[ 88%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_high_comba.c.o
+[ 88%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_karatsuba.c.o
+[ 89%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_mul_toom.c.o
+[ 90%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_prime_is_divisible.c.o
+[ 90%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_prime_tab.c.o
+[ 91%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_radix_map.c.o
+[ 91%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_radix_size_overestimate.c.o
+[ 92%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_rand_platform.c.o
+[ 93%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_rand_source.c.o
+[ 93%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_sqr.c.o
+[ 94%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_sqr_comba.c.o
+[ 95%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_sqr_karatsuba.c.o
+[ 95%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_sqr_toom.c.o
+[ 96%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_sub.c.o
+[ 96%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_warray.c.o
+[ 97%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_warray_get.c.o
+[ 98%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_warray_put.c.o
+[ 98%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_zero_buf.c.o
+[ 99%] Building C object libtommath/CMakeFiles/libtommath.dir/s_mp_zero_digs.c.o
+[100%] Linking C static library libtommath.a
+[100%] Built target libtommath
+EXIT 0
+COMMAND ["cmake", "--install", "$WORK/libtommath-before-off/build", "--config", "Release"]
+-- Installing: $WORK/libtommath-before-off/install/lib/libtommath.a
+-- Installing: $WORK/libtommath-before-off/install/include/libtommath/tommath.h
+CMake Error at $WORK/libtommath-before-off/build/libtommath/cmake_install.cmake:53 (file):
+  file INSTALL cannot find "$COLLECTION/libtommath-parent/doc/tommath.3": No such
+  file or directory.
+Call Stack (most recent call first):
+  $WORK/libtommath-before-off/build/cmake_install.cmake:42 (include)
+
+
+EXIT 1

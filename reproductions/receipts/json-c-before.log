@@ -1,0 +1,206 @@
+COMMAND ["cmake", "-S", "$COLLECTION/json-c-reset", "-B", "$WORK/json-c-before/build", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TESTING=OFF", "-DJSON_C_SOURCE=$WORK/json-c/before/source", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_APPS=OFF"]
+-- The C compiler identification is AppleClang 21.0.0.21000099
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- macOS detected: enabling NEWLOCALE_NEEDS_FREELOCALE to prevent memory leaks
+-- Building for Darwin
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for stdarg.h
+-- Looking for stdarg.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for syslog.h
+-- Looking for syslog.h - found
+-- Looking for 4 include files stdlib.h, ..., float.h
+-- Looking for 4 include files stdlib.h, ..., float.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for dlfcn.h
+-- Looking for dlfcn.h - found
+-- Looking for endian.h
+-- Looking for endian.h - not found
+-- Looking for limits.h
+-- Looking for limits.h - found
+-- Looking for locale.h
+-- Looking for locale.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stdlib.h
+-- Looking for stdlib.h - found
+-- Looking for sys/cdefs.h
+-- Looking for sys/cdefs.h - found
+-- Looking for sys/param.h
+-- Looking for sys/param.h - found
+-- Looking for sys/random.h
+-- Looking for sys/random.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for xlocale.h
+-- Looking for xlocale.h - found
+-- Looking for _isnan
+-- Looking for _isnan - not found
+-- Looking for _finite
+-- Looking for _finite - not found
+-- Looking for INFINITY
+-- Looking for INFINITY - found
+-- Looking for isinf
+-- Looking for isinf - found
+-- Looking for isnan
+-- Looking for isnan - found
+-- Looking for nan
+-- Looking for nan - found
+-- Looking for _doprnt
+-- Looking for _doprnt - not found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for vasprintf
+-- Looking for vasprintf - found
+-- Looking for vsnprintf
+-- Looking for vsnprintf - found
+-- Looking for vprintf
+-- Looking for vprintf - found
+-- Looking for arc4random
+-- Looking for arc4random - found
+-- Looking for open
+-- Looking for open - found
+-- Looking for realloc
+-- Looking for realloc - found
+-- Looking for setlocale
+-- Looking for setlocale - found
+-- Looking for uselocale
+-- Looking for uselocale - found
+-- Looking for duplocale
+-- Looking for duplocale - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for strncasecmp
+-- Looking for strncasecmp - found
+-- Looking for strdup
+-- Looking for strdup - found
+-- Looking for strerror
+-- Looking for strerror - found
+-- Looking for vsyslog
+-- Looking for vsyslog - found
+-- Looking for getrandom
+-- Looking for getrandom - not found
+-- Looking for getrusage
+-- Looking for getrusage - found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Looking for strtoull
+-- Looking for strtoull - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of int
+-- Check size of int - done
+-- Check size of int64_t
+-- Check size of int64_t - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of long long
+-- Check size of long long - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+CMake Warning (policy) at $WORK/json-c/before/source/CMakeLists.txt:370 (check_c_source_compiles):
+  Policy CMP0219 is not set: Macro invocations preserve backslashes in
+  arguments.  Run "cmake --help-policy CMP0219" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Command "CHECK_C_SOURCE_COMPILES" called with arguments containing
+  backslashes.
+
+  Since the policy is not set, backslashes in the arguments:
+
+   "
+
+  extern void json_object_get();
+
+  __asm__(".section .gnu.json_object_get\n\t.ascii \"Please link against
+  libjson-c instead of libjson\"\n\t.text");
+
+  int main(int c, char *v) { return 0;}
+
+  "
+
+  will be interpreted as escape sequences for compatibility.
+
+  Set the policy to NEW to instead pass
+
+   "
+
+  extern void json_object_get();
+
+  __asm__(".section .gnu.json_object_get\\n\\t.ascii \\"Please link against
+  libjson-c instead of libjson\\"\\n\\t.text");
+
+  int main(int c, char *v) { return 0;}
+
+  "
+
+  so that argument parsing will preserve the original values.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+-- Performing Test HAS_GNU_WARNING_LONG
+-- Performing Test HAS_GNU_WARNING_LONG - Failed
+-- Performing Test HAVE_ATOMIC_BUILTINS
+-- Performing Test HAVE_ATOMIC_BUILTINS - Success
+-- Performing Test HAVE___THREAD
+-- Performing Test HAVE___THREAD - Success
+-- Wrote $WORK/json-c-before/build/json-c/config.h
+-- Wrote $WORK/json-c-before/build/json-c/json_config.h
+-- Performing Test REENTRANT_WORKS
+-- Performing Test REENTRANT_WORKS - Success
+-- Performing Test BSYMBOLIC_WORKS
+-- Performing Test BSYMBOLIC_WORKS - Failed
+-- Performing Test VERSION_SCRIPT_WORKS
+-- Performing Test VERSION_SCRIPT_WORKS - Failed
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+Warning: doxygen not found, the 'doc' target will not be included
+-- Configuring done (10.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: $WORK/json-c-before/build
+EXIT 0
+COMMAND ["cmake", "--build", "$WORK/json-c-before/build", "--parallel", "4", "--target", "json-c-reset-probe"]
+[ 11%] Building C object json-c/CMakeFiles/json-c.dir/arraylist.c.o
+[ 17%] Building C object json-c/CMakeFiles/json-c.dir/debug.c.o
+[ 23%] Building C object json-c/CMakeFiles/json-c.dir/json_c_version.c.o
+[ 23%] Building C object json-c/CMakeFiles/json-c.dir/json_object.c.o
+[ 29%] Building C object json-c/CMakeFiles/json-c.dir/json_object_iterator.c.o
+[ 35%] Building C object json-c/CMakeFiles/json-c.dir/json_tokener.c.o
+[ 41%] Building C object json-c/CMakeFiles/json-c.dir/json_util.c.o
+[ 47%] Building C object json-c/CMakeFiles/json-c.dir/json_visit.c.o
+[ 52%] Building C object json-c/CMakeFiles/json-c.dir/linkhash.c.o
+[ 58%] Building C object json-c/CMakeFiles/json-c.dir/printbuf.c.o
+[ 64%] Building C object json-c/CMakeFiles/json-c.dir/random_seed.c.o
+[ 70%] Building C object json-c/CMakeFiles/json-c.dir/strerror_override.c.o
+[ 76%] Building C object json-c/CMakeFiles/json-c.dir/json_pointer.c.o
+[ 82%] Building C object json-c/CMakeFiles/json-c.dir/json_patch.c.o
+[ 88%] Linking C static library libjson-c.a
+[ 88%] Built target json-c
+[ 94%] Building C object CMakeFiles/json-c-reset-probe.dir/probe.c.o
+[100%] Linking C executable json-c-reset-probe
+[100%] Built target json-c-reset-probe
+EXIT 0
+COMMAND ["$WORK/json-c-before/build/json-c-reset-probe"]
+reset then U+0041: expected length 1 bytes 41; got length 4 bytes EF BF BD 41
+PASS incomplete high surrogate: object=NULL error=continue
+EXIT 1

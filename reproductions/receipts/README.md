@@ -21,7 +21,10 @@ baseline rows, and successful execution on fixed rows.
 Source acquisition for these receipts was `git archive` from existing public
 repository checkouts, using the full pinned commit IDs. No production code was
 changed. The case READMEs give equivalent clone/fetch instructions for readers;
-those network acquisition commands were not rerun for these receipts.
+those network acquisition commands were not used to generate the build receipts.
+They were subsequently executed in separate clean clones: all four source trees
+match the tested revisions. [source-availability.json](source-availability.json)
+records that check; builds were not repeated for it.
 
 Execution is macOS arm64, Apple Clang 21.0.0 and CMake 4.4.3. Other platforms,
 full project suites and upstream CI are outside these collection receipts.

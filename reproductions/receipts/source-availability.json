@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-10-11T01:47:19.845175+00:00",
+  "scope": "Public clone/fetch/checkouts and tree identity to the already-executed collection sources.",
+  "builds_rerun": false,
+  "projects": [
+    {
+      "project": "json-c",
+      "public_clone_fetch_checkouts_passed": true,
+      "verified": [
+        {
+          "revision": "9e99c1cfe77573496e9ea6da5153e4fd7e2cbde0",
+          "actual": "9e99c1cfe77573496e9ea6da5153e4fd7e2cbde0",
+          "tree": "99297cefdca0ad086ab7917b9e0c36a354002c4c",
+          "matches_tested_source_tree": true
+        },
+        {
+          "revision": "7662139501603434eba79aa7b916d1497d3d9cf4",
+          "actual": "7662139501603434eba79aa7b916d1497d3d9cf4",
+          "tree": "d49d2f09e94bd1634611e0964323c2f2897bf0e9",
+          "matches_tested_source_tree": true
+        }
+      ]
+    },
+    {
+      "project": "libtommath",
+      "public_clone_fetch_checkouts_passed": true,
+      "verified": [
+        {
+          "revision": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+          "actual": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+          "tree": "bb3a9c3ad2ee806dbff50e693af3bf591ff89bf0",
+          "matches_tested_source_tree": true
+        },
+        {
+          "revision": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+          "actual": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+          "tree": "7a2d9db558e5e82612134f721ff147bf6071cd34",
+          "matches_tested_source_tree": true
+        }
+      ]
+    }
+  ]
+}

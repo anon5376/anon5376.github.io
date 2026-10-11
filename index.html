@@ -216,7 +216,27 @@
             </div>
           </div>
         </article>
-        <p class="note">These cases were executed on macOS arm64. PCRE2 covers 8-, 16- and 32-bit libraries with interpreter and JIT execution. <a href="https://github.com/anon5376/anon5376.github.io/blob/fff40d87f3595908c4ebcab31d75c91619afdee6/reproductions/receipts/README.md">All receipts and scope</a>.</p>
+        <article class="case" aria-labelledby="ffi-heading">
+          <h3 id="ffi-heading">libffi · Darwin stack</h3>
+          <div class="detail">
+            <p>A 12-byte mixed struct sits between integers on the stack. Calls and closures must follow the native macOS arm64 layout.</p>
+            <table class="result" aria-label="libffi following integer argument">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>11</code></td></tr>
+                <tr><th scope="row">Before · closure</th><td><code>17</code></td></tr>
+                <tr><th scope="row">Fixed · both modes</th><td><code>11</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/31e8a64f72f2a2847144307657b13823babcbff9/reproductions/libffi-darwin-stack/README.md">libffi recipe</a>
+              <a href="reproductions/receipts/libffi-before-call.log">Before log · call</a>
+              <a href="reproductions/receipts/libffi-fixed-call.log">Fixed log · call</a>
+              <a href="reproductions/receipts/libffi-before-closure.log">Before log · closure</a>
+              <a href="reproductions/receipts/libffi-fixed-closure.log">Fixed log · closure</a>
+            </div>
+          </div>
+        </article>
+        <p class="note">These cases were executed on macOS arm64. PCRE2 covers 8-, 16- and 32-bit libraries with interpreter and JIT execution. <a href="https://github.com/anon5376/anon5376.github.io/blob/31e8a64f72f2a2847144307657b13823babcbff9/reproductions/receipts/README.md">All receipts and scope</a>.</p>
       </section>
     </main>
     <footer>

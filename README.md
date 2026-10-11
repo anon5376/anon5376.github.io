@@ -14,9 +14,7 @@ PCRE2 covers all three library widths with interpreter and JIT execution.
 
 ## Merged
 
-[CodexBar #3753](https://github.com/steipete/CodexBar/pull/3753): fixed usage
-accounting across paginated session files and persisted cache recovery.
-Merged September 20, 2026, Asia/Yakutsk.
+No qualifying infrastructure patches merged yet.
 
 ## Submitted
 

@@ -1,0 +1,108 @@
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+Making all in include
+make[2]: Nothing to be done for `all'.
+Making all in testsuite
+make[2]: Nothing to be done for `all'.
+Making all in man
+make[2]: Nothing to be done for `all'.
+depbase=`echo src/prep_cif.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/prep_cif.lo -MD -MP -MF $depbase.Tpo -c -o src/prep_cif.lo $WORK/before/source/src/prep_cif.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+depbase=`echo src/types.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/types.lo -MD -MP -MF $depbase.Tpo -c -o src/types.lo $WORK/before/source/src/types.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+depbase=`echo src/raw_api.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/raw_api.lo -MD -MP -MF $depbase.Tpo -c -o src/raw_api.lo $WORK/before/source/src/raw_api.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+depbase=`echo src/java_raw_api.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/java_raw_api.lo -MD -MP -MF $depbase.Tpo -c -o src/java_raw_api.lo $WORK/before/source/src/java_raw_api.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/prep_cif.lo -MD -MP -MF src/.deps/prep_cif.Tpo -c $WORK/before/source/src/prep_cif.c -o src/prep_cif.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/types.lo -MD -MP -MF src/.deps/types.Tpo -c $WORK/before/source/src/types.c -o src/types.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/java_raw_api.lo -MD -MP -MF src/.deps/java_raw_api.Tpo -c $WORK/before/source/src/java_raw_api.c -o src/java_raw_api.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/raw_api.lo -MD -MP -MF src/.deps/raw_api.Tpo -c $WORK/before/source/src/raw_api.c -o src/raw_api.o
+$WORK/before/source/src/java_raw_api.c:329:46: warning: 'ffi_java_raw_size' is deprecated [-Wdeprecated-declarations]
+  329 |   ffi_java_raw *raw = (ffi_java_raw*)alloca (ffi_java_raw_size (cif));
+      |                                              ^
+include/ffi.h:323:56: note: 'ffi_java_raw_size' has been explicitly marked deprecated here
+  323 | size_t ffi_java_raw_size (ffi_cif *cif) __attribute__((deprecated));
+      |                                                        ^
+$WORK/before/source/src/java_raw_api.c:332:3: warning: 'ffi_java_ptrarray_to_raw' is deprecated [-Wdeprecated-declarations]
+  332 |   ffi_java_ptrarray_to_raw (cif, avalue, raw);
+      |   ^
+include/ffi.h:319:93: note: 'ffi_java_ptrarray_to_raw' has been explicitly marked deprecated here
+  319 | void ffi_java_ptrarray_to_raw (ffi_cif *cif, void **args, ffi_java_raw *raw) __attribute__((deprecated));
+      |                                                                                             ^
+depbase=`echo src/closures.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/closures.lo -MD -MP -MF $depbase.Tpo -c -o src/closures.lo $WORK/before/source/src/closures.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+2 warnings generated.
+depbase=`echo src/tramp.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/tramp.lo -MD -MP -MF $depbase.Tpo -c -o src/tramp.lo $WORK/before/source/src/tramp.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+depbase=`echo src/aarch64/ffi.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src   -Wall -O2 -g -fexceptions -MT src/aarch64/ffi.lo -MD -MP -MF $depbase.Tpo -c -o src/aarch64/ffi.lo $WORK/before/source/src/aarch64/ffi.c &&\
+	mv -f $depbase.Tpo $depbase.Plo
+depbase=`echo src/aarch64/sysv.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/sh ./libtool  --tag=CC   --mode=compile gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source  -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src  '-I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src' -O2 -g -MT src/aarch64/sysv.lo -MD -MP -MF $depbase.Tpo -c -o src/aarch64/sysv.lo $WORK/before/source/src/aarch64/sysv.S &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/closures.lo -MD -MP -MF src/.deps/closures.Tpo -c $WORK/before/source/src/closures.c -o src/closures.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/tramp.lo -MD -MP -MF src/.deps/tramp.Tpo -c $WORK/before/source/src/tramp.c -o src/tramp.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src -Wall -O2 -g -fexceptions -MT src/aarch64/ffi.lo -MD -MP -MF src/aarch64/.deps/ffi.Tpo -c $WORK/before/source/src/aarch64/ffi.c -o src/aarch64/ffi.o
+libtool: compile:  gcc -std=gnu23 -DHAVE_CONFIG_H -I. -I$WORK/before/source -I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src "-I. -I$WORK/before/source/include -Iinclude -I$WORK/before/source/src" -O2 -g -MT src/aarch64/sysv.lo -MD -MP -MF src/aarch64/.deps/sysv.Tpo -c $WORK/before/source/src/aarch64/sysv.S -o src/aarch64/sysv.o
+/bin/sh ./libtool  --tag=CC   --mode=link gcc -std=gnu23  -Wall -O2 -g -fexceptions   -o libffi_convenience.la  src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo src/tramp.lo   src/aarch64/ffi.lo src/aarch64/sysv.lo
+/bin/sh ./libtool  --tag=CC   --mode=link gcc -std=gnu23  -Wall -O2 -g -fexceptions -no-undefined -version-info `grep -v '^#' $WORK/before/source/libtool-version`     -o libffi.la -rpath /usr/local/lib src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo src/tramp.lo  src/aarch64/ffi.lo src/aarch64/sysv.lo
+./libtool: line 11720: test: : integer expression expected
+./libtool: line 11720: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+libtool: link: ar cr .libs/libffi_convenience.a src/prep_cif.o
+./libtool: line 11720: test: : integer expression expected
+./libtool: line 11720: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+libtool: link: : .libs/libffi_convenience.a
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+./libtool: line 11756: test: : integer expression expected
+libtool: link: ar cr .libs/libffi.a src/prep_cif.o
+libtool: link: ar cr .libs/libffi_convenience.a src/types.o
+libtool: link: : .libs/libffi.a
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: ar cr .libs/libffi.a src/types.o
+libtool: link: ar cr .libs/libffi_convenience.a src/raw_api.o
+libtool: link: : .libs/libffi.a
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: ar cr .libs/libffi_convenience.a src/java_raw_api.o
+libtool: link: ar cr .libs/libffi.a src/raw_api.o
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: : .libs/libffi.a
+libtool: link: ar cr .libs/libffi.a src/java_raw_api.o
+libtool: link: ar cr .libs/libffi_convenience.a src/closures.o
+libtool: link: : .libs/libffi.a
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: ar cr .libs/libffi_convenience.a src/tramp.o
+libtool: link: ar cr .libs/libffi.a src/closures.o
+libtool: link: : .libs/libffi.a
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: ar cr .libs/libffi.a src/tramp.o
+libtool: link: ar cr .libs/libffi_convenience.a src/aarch64/ffi.o
+libtool: link: : .libs/libffi_convenience.a
+libtool: link: : .libs/libffi.a
+libtool: link: ar cr .libs/libffi.a src/aarch64/ffi.o
+libtool: link: ar cr .libs/libffi_convenience.a src/aarch64/sysv.o
+libtool: link: ranlib .libs/libffi_convenience.a
+libtool: link: : .libs/libffi.a
+libtool: link: ar cr .libs/libffi.a src/aarch64/sysv.o
+libtool: link: ( cd ".libs" && rm -f "libffi_convenience.la" && ln -s "../libffi_convenience.la" "libffi_convenience.la" )
+libtool: link: ranlib .libs/libffi.a
+libtool: link: ( cd ".libs" && rm -f "libffi.la" && ln -s "../libffi.la" "libffi.la" )

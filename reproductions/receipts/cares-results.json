@@ -1,0 +1,231 @@
+{
+  "work": "$WORK",
+  "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "probe_sha256": "0824188a9c8c51e018975c6b817fe79a1b72859327fa4985dc53b6e8705a57c8",
+  "cmake_sha256": "1d63e5be1b2372822e706262260dfbaad23f8ac83352963e2fd0f3ad9a8c6ddb",
+  "tools": {
+    "git": "git version 2.55.0",
+    "cmake": "cmake version 4.4.3",
+    "cc": "Apple clang version 21.0.0 (clang-2100.0.123.102)"
+  },
+  "runs": [
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "clone",
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/c-ares/c-ares.git",
+        "$WORK/before/source"
+      ],
+      "exit": 0,
+      "log": "cares-before-clone.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/before/source",
+        "fetch",
+        "origin",
+        "refs/pull/1326/head"
+      ],
+      "exit": 0,
+      "log": "cares-before-fetch.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "checkout",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/before/source",
+        "checkout",
+        "--detach",
+        "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1"
+      ],
+      "exit": 0,
+      "log": "cares-before-checkout.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "$CASE",
+        "-B",
+        "$WORK/before/build",
+        "-DCARES_SOURCE=$WORK/before/source",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCARES_STATIC=ON",
+        "-DCARES_SHARED=OFF",
+        "-DCARES_INSTALL=OFF",
+        "-DCARES_BUILD_TESTS=OFF",
+        "-DCARES_BUILD_TOOLS=OFF"
+      ],
+      "exit": 0,
+      "log": "cares-before-configure.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "$WORK/before/build",
+        "--target",
+        "c-ares-srv-probe",
+        "--parallel",
+        "4"
+      ],
+      "exit": 0,
+      "log": "cares-before-build.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "literal",
+      "command": [
+        "$WORK/before/build/c-ares-srv-probe",
+        "--literal"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "cares-before-literal.log"
+    },
+    {
+      "revision": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+      "label": "before",
+      "step": "compressed",
+      "command": [
+        "$WORK/before/build/c-ares-srv-probe",
+        "--compressed"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "log": "cares-before-compressed.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "clone",
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/c-ares/c-ares.git",
+        "$WORK/fixed/source"
+      ],
+      "exit": 0,
+      "log": "cares-fixed-clone.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/fixed/source",
+        "fetch",
+        "origin",
+        "refs/pull/1326/head"
+      ],
+      "exit": 0,
+      "log": "cares-fixed-fetch.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "checkout",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/fixed/source",
+        "checkout",
+        "--detach",
+        "966257ce9f321fcae3651d6bb1a84cdda3de1aff"
+      ],
+      "exit": 0,
+      "log": "cares-fixed-checkout.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "$CASE",
+        "-B",
+        "$WORK/fixed/build",
+        "-DCARES_SOURCE=$WORK/fixed/source",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCARES_STATIC=ON",
+        "-DCARES_SHARED=OFF",
+        "-DCARES_INSTALL=OFF",
+        "-DCARES_BUILD_TESTS=OFF",
+        "-DCARES_BUILD_TOOLS=OFF"
+      ],
+      "exit": 0,
+      "log": "cares-fixed-configure.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "$WORK/fixed/build",
+        "--target",
+        "c-ares-srv-probe",
+        "--parallel",
+        "4"
+      ],
+      "exit": 0,
+      "log": "cares-fixed-build.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "literal",
+      "command": [
+        "$WORK/fixed/build/c-ares-srv-probe",
+        "--literal"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "cares-fixed-literal.log"
+    },
+    {
+      "revision": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+      "label": "fixed",
+      "step": "compressed",
+      "command": [
+        "$WORK/fixed/build/c-ares-srv-probe",
+        "--compressed"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "cares-fixed-compressed.log"
+    }
+  ],
+  "pr": "https://github.com/c-ares/c-ares/pull/1326",
+  "baseline": "f4156c12c8b36f5cb8f8a53658d44b24263c6ad1",
+  "fixed": "966257ce9f321fcae3651d6bb1a84cdda3de1aff",
+  "source_acquisition": "Fresh GitHub clone and PR ref fetch for each revision; exact detached checkouts, as in the case README.",
+  "normalization": "Local directory prefixes replaced; trailing whitespace removed. Other log output retained."
+}

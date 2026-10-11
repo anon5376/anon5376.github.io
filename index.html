@@ -1,1 +1,294 @@
-<h1>Hello</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="qeqx — infrastructure fixes, regression tests and reproducible failure cases.">
+  <title>qeqx — infrastructure fixes</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23faf8f3'/%3E%3Ctext x='12' y='46' font-family='Georgia,serif' font-size='50' fill='%23252a2d'%3Eq%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf8f3;
+      --ink: #252a2d;
+      --muted: #596064;
+      --link: #174b78;
+      --rule: #cbc9c0;
+      --code: #efede5;
+      --good: #285641;
+      --measure: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; scrollbar-color: var(--muted) var(--paper); }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    ::selection { color: var(--paper); background: var(--link); }
+    a { color: var(--link); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+    a:hover { color: var(--ink); text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; }
+    .skip { position: absolute; left: 24px; top: -100px; padding: 8px 16px; background: var(--paper); z-index: 1; }
+    .skip:focus { top: 12px; }
+    .page { width: min(var(--measure), calc(100% - 64px)); margin-inline: auto; }
+    header { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding-block: 30px; border-bottom: 1px solid var(--rule); }
+    header p { margin: 0; font-size: 14px; color: var(--muted); }
+    nav { display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 14px; }
+    nav a { padding-block: 8px; }
+    h1, h2, h3 { margin: 0; text-wrap: balance; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { font-size: clamp(56px, 8vw, 88px); line-height: 1.05; letter-spacing: -.03em; }
+    h2 { font-size: clamp(30px, 4vw, 38px); line-height: 1.2; letter-spacing: -.02em; }
+    h3 { font-size: 19px; line-height: 1.4; font-weight: 600; }
+    p { margin: 0; }
+    .intro { padding-block: 64px 56px; }
+    .intro p { max-width: 58ch; margin-top: 20px; font-size: 21px; line-height: 1.5; }
+    section { padding-block: 38px 48px; border-top: 1px solid var(--rule); }
+    .section-head { display: grid; grid-template-columns: 240px 1fr; gap: 36px; margin-bottom: 28px; align-items: baseline; }
+    .section-head p { max-width: 64ch; color: var(--muted); font-size: 15px; }
+    .work-list { list-style: none; margin: 0; padding: 0; }
+    .work-list li { display: grid; grid-template-columns: 240px 1fr; gap: 36px; padding-block: 20px; border-top: 1px solid var(--rule); }
+    .work-list li:first-child { padding-top: 0; border-top: 0; }
+    .work-list .detail { max-width: 65ch; }
+    .checks { display: block; color: var(--muted); font-size: 14px; margin-top: 6px; }
+    .case { display: grid; grid-template-columns: 240px 1fr; gap: 36px; padding-block: 28px; border-top: 1px solid var(--rule); }
+    .case:first-of-type { border-top: 0; padding-top: 0; }
+    .case .detail > p { max-width: 65ch; }
+    .case-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 16px; font-size: 14px; }
+    code { background: var(--code); padding: .12em .3em; font: .85em/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace; overflow-wrap: anywhere; }
+    .result { width: 100%; max-width: 610px; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+    .result th, .result td { padding: 7px 16px 7px 0; text-align: left; vertical-align: top; }
+    .result th { font-weight: 400; color: var(--muted); width: 108px; }
+    .result td { font-variant-numeric: tabular-nums; }
+    .result tr:last-child td { color: var(--good); }
+    .note { margin-top: 20px; max-width: 70ch; color: var(--muted); font-size: 14px; }
+    footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; padding-block: 28px 48px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+    footer p { max-width: 60ch; }
+    @media (max-width: 720px) {
+      .page { width: calc(100% - 40px); }
+      header { padding-block: 20px; gap: 16px; }
+      header p { display: none; }
+      nav { gap: 12px 24px; }
+      .intro { padding-block: 44px 40px; }
+      .intro p { font-size: 19px; }
+      section { padding-block: 30px 36px; }
+      .section-head, .work-list li, .case { grid-template-columns: 1fr; gap: 12px; }
+      .section-head { margin-bottom: 24px; }
+      .work-list li { padding-block: 24px; }
+      .case { padding-block: 28px; }
+      .case-links { gap: 12px 22px; }
+      .result th { width: 90px; }
+      footer { padding-bottom: 32px; }
+    }
+    @media print {
+      .page { width: 100%; }
+      body { background: white; font-size: 11pt; }
+      .skip, nav { display: none; }
+      .intro { padding-block: 24px; }
+      section, .case, .work-list li { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header>
+      <p>Infrastructure fixes &amp; regression tests</p>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#cases">Failure cases</a>
+        <a href="https://github.com/anon5376">GitHub</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="intro">
+        <h1>qeqx</h1>
+        <p>I fix reproducible bugs in infrastructure libraries.</p>
+      </div>
+
+      <section id="work" aria-labelledby="merged-heading">
+        <div class="section-head">
+          <h2 id="merged-heading">Merged</h2>
+          <p>No infrastructure patches merged yet.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="open-heading">
+        <div class="section-head">
+          <h2 id="open-heading">Open</h2>
+          <p>Selected submissions awaiting upstream review.</p>
+        </div>
+        <ul class="work-list">
+          <li>
+            <h3><a href="https://github.com/redis/hiredis/pull/1379">Hiredis #1379</a></h3>
+            <div class="detail">
+              <p>Preserve pending command timeouts and libevent deadlines; apply runtime timeout changes.</p>
+              <span class="checks">Local: 187 tests passed. Full fork CI: 9/9; paired regressions: 5/5.</span>
+            </div>
+          </li>
+          <li>
+            <h3><a href="https://github.com/c-ares/c-ares/pull/1326">c-ares #1326</a></h3>
+            <div class="detail">
+              <p>Parse compressed names in legacy DNS records. Builds on afonsojanu’s earlier approach.</p>
+              <span class="checks">Local: 86 parser tests and 1,110 non-live IPv4/IPv6 tests passed.</span>
+            </div>
+          </li>
+          <li>
+            <h3><a href="https://github.com/libffi/libffi/pull/1029">libffi #1029</a></h3>
+            <div class="detail">
+              <p>Correct Darwin ARM64 stack slots for small non-HFA struct arguments, in calls and closures.</p>
+              <span class="checks">Local: 1,746 tests passed; five unsupported.</span>
+            </div>
+          </li>
+          <li>
+            <h3><a href="https://github.com/PCRE2Project/pcre2/pull/1036">PCRE2 #1036</a></h3>
+            <div class="detail">
+              <p>Preserve backtracking needed by whole-pattern recursion.</p>
+              <span class="checks">Local: 8/16/32-bit interpreter and JIT checks; CTest 4/4 passed.</span>
+            </div>
+          </li>
+          <li>
+            <h3><a href="https://github.com/json-c/json-c/pull/986">json-c #986</a></h3>
+            <div class="detail">
+              <p>Clear a pending Unicode surrogate when resetting the parser.</p>
+              <span class="checks">Local: CMake 29/29 and Meson 27/27 passed.</span>
+            </div>
+          </li>
+          <li>
+            <h3><a href="https://github.com/libtom/libtommath/pull/612">LibTomMath #612</a></h3>
+            <div class="detail">
+              <p>Find the library’s manpage when installing through a parent CMake project.</p>
+              <span class="checks">Local: static/shared parent installs and native arithmetic tests passed.</span>
+            </div>
+          </li>
+        </ul>
+        <p class="note">Checks describe the tested revisions linked in each PR. Status checked <time datetime="2026-10-11">11 Oct 2026</time>.</p>
+      </section>
+
+      <section id="cases" aria-labelledby="cases-heading">
+        <div class="section-head">
+          <h2 id="cases-heading">Failure cases</h2>
+          <p>Pinned revisions, small fixtures and before/after logs. Run them yourself.</p>
+        </div>
+        <article class="case" aria-labelledby="hiredis-heading">
+          <h3 id="hiredis-heading">Hiredis · async timeout</h3>
+          <div class="detail">
+            <p>Queue more commands while a PING waits for a reply. The pending timeout must still expire. Two controls also enable and shorten it at runtime.</p>
+            <table class="result" aria-label="Hiredis pending command timeout">
+              <tbody>
+                <tr><th scope="row">Expected</th><td>Pending commands time out.</td></tr>
+                <tr><th scope="row">Before</th><td>No timeout after <code>750 ms</code> of enqueueing.</td></tr>
+                <tr><th scope="row">Fixed</th><td>Timeout fires; all queued callbacks are notified.</td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/hiredis-async-timeout/README.md">Hiredis recipe</a>
+              <a href="reproductions/receipts/hiredis-before-enqueue.log">Before log</a>
+              <a href="reproductions/receipts/hiredis-fixed-enqueue.log">Fixed log</a>
+              <a href="reproductions/receipts/hiredis-results.json">Runtime controls</a>
+            </div>
+          </div>
+        </article>
+        <article class="case" aria-labelledby="json-heading">
+          <h3 id="json-heading">json-c · parser reset</h3>
+          <div class="detail">
+            <p>Reset after an unfinished Unicode surrogate, then parse <code>A</code> in a new document. The old parser keeps extra bytes.</p>
+            <table class="result" aria-label="json-c decoded bytes">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>41</code></td></tr>
+                <tr><th scope="row">Before</th><td><code>EF BF BD 41</code></td></tr>
+                <tr><th scope="row">Fixed</th><td><code>41</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/fff40d87f3595908c4ebcab31d75c91619afdee6/reproductions/json-c-reset/README.md">json-c recipe</a>
+              <a href="reproductions/receipts/json-c-before.log">Before log</a>
+              <a href="reproductions/receipts/json-c-fixed.log">Fixed log</a>
+            </div>
+          </div>
+        </article>
+        <article class="case" aria-labelledby="pcre-heading">
+          <h3 id="pcre-heading">PCRE2 · recursion</h3>
+          <div class="detail">
+            <p>Match <code>(?:b(?R)a|a+)</code> against <code>baa</code>. Whole-pattern recursion returns the wrong substring.</p>
+            <table class="result" aria-label="PCRE2 matched text">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>baa</code></td></tr>
+                <tr><th scope="row">Before</th><td><code>aa</code></td></tr>
+                <tr><th scope="row">Fixed</th><td><code>baa</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/fff40d87f3595908c4ebcab31d75c91619afdee6/reproductions/pcre2-recursion/README.md">PCRE2 recipe</a>
+              <a href="reproductions/receipts/pcre2-before-8-jit.log">Before log · 8-bit JIT</a>
+              <a href="reproductions/receipts/pcre2-fixed-8-jit.log">Fixed log · 8-bit JIT</a>
+            </div>
+          </div>
+        </article>
+        <article class="case" aria-labelledby="math-heading">
+          <h3 id="math-heading">LibTomMath · install</h3>
+          <div class="detail">
+            <p>A parent CMake project builds the library, then installation looks for the manpage in the parent’s directory.</p>
+            <table class="result" aria-label="LibTomMath parent installation results">
+              <tbody>
+                <tr><th scope="row">Expected</th><td>Install the library’s manpage.</td></tr>
+                <tr><th scope="row">Before</th><td>Install fails: manpage missing.</td></tr>
+                <tr><th scope="row">Fixed</th><td>Static and shared installs pass.</td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/fff40d87f3595908c4ebcab31d75c91619afdee6/reproductions/libtommath-parent/README.md">LibTomMath recipe</a>
+              <a href="reproductions/receipts/libtommath-before-off.log">Before log · static</a>
+              <a href="reproductions/receipts/libtommath-fixed-off.log">Fixed log · static</a>
+              <a href="reproductions/receipts/libtommath-before-on.log">Before log · shared</a>
+              <a href="reproductions/receipts/libtommath-fixed-on.log">Fixed log · shared</a>
+            </div>
+          </div>
+        </article>
+        <article class="case" aria-labelledby="ffi-heading">
+          <h3 id="ffi-heading">libffi · Darwin stack</h3>
+          <div class="detail">
+            <p>A 12-byte mixed struct sits between integers on the stack. Calls and closures must follow the native macOS arm64 layout.</p>
+            <table class="result" aria-label="libffi following integer argument">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>11</code></td></tr>
+                <tr><th scope="row">Before · closure</th><td><code>17</code></td></tr>
+                <tr><th scope="row">Fixed · both modes</th><td><code>11</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/31e8a64f72f2a2847144307657b13823babcbff9/reproductions/libffi-darwin-stack/README.md">libffi recipe</a>
+              <a href="reproductions/receipts/libffi-before-call.log">Before log · call</a>
+              <a href="reproductions/receipts/libffi-fixed-call.log">Fixed log · call</a>
+              <a href="reproductions/receipts/libffi-before-closure.log">Before log · closure</a>
+              <a href="reproductions/receipts/libffi-fixed-closure.log">Fixed log · closure</a>
+            </div>
+          </div>
+        </article>
+        <article class="case" aria-labelledby="srv-heading">
+          <h3 id="srv-heading">c-ares · SRV target</h3>
+          <div class="detail">
+            <p>A legacy DNS reply compresses its SRV target. The parser should accept it on receipt and return the same fields as the literal control.</p>
+            <table class="result" aria-label="c-ares compressed SRV target">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>example.com</code> · port <code>30</code></td></tr>
+                <tr><th scope="row">Before</th><td><code>ARES_EBADNAME</code></td></tr>
+                <tr><th scope="row">Fixed</th><td><code>example.com</code> · port <code>30</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/c-ares-srv/README.md">c-ares recipe</a>
+              <a href="reproductions/receipts/cares-before-compressed.log">Before log</a>
+              <a href="reproductions/receipts/cares-fixed-compressed.log">Fixed log</a>
+              <a href="reproductions/receipts/cares-before-literal.log">Literal control · before</a>
+              <a href="reproductions/receipts/cares-fixed-literal.log">Literal control · fixed</a>
+            </div>
+          </div>
+        </article>
+        <p class="note">These cases were executed on macOS arm64. PCRE2 covers 8-, 16- and 32-bit libraries with interpreter and JIT execution. <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/receipts/README.md">All receipts and scope</a>.</p>
+      </section>
+    </main>
+    <footer>
+      <p>qeqx · <a href="https://github.com/anon5376">anon5376 on GitHub</a></p>
+      <a href="https://github.com/anon5376/anon5376.github.io">Page source</a>
+    </footer>
+  </div>
+</body>
+</html>

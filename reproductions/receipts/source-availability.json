@@ -1,0 +1,66 @@
+{
+  "checked_at_utc": "2026-10-11T01:47:19.845175+00:00",
+  "scope": "Public clone/fetch/checkouts and tree identity to the already-executed collection sources.",
+  "builds_rerun": false,
+  "projects": [
+    {
+      "project": "json-c",
+      "public_clone_fetch_checkouts_passed": true,
+      "verified": [
+        {
+          "revision": "9e99c1cfe77573496e9ea6da5153e4fd7e2cbde0",
+          "actual": "9e99c1cfe77573496e9ea6da5153e4fd7e2cbde0",
+          "tree": "99297cefdca0ad086ab7917b9e0c36a354002c4c",
+          "matches_tested_source_tree": true
+        },
+        {
+          "revision": "7662139501603434eba79aa7b916d1497d3d9cf4",
+          "actual": "7662139501603434eba79aa7b916d1497d3d9cf4",
+          "tree": "d49d2f09e94bd1634611e0964323c2f2897bf0e9",
+          "matches_tested_source_tree": true
+        }
+      ]
+    },
+    {
+      "project": "libtommath",
+      "public_clone_fetch_checkouts_passed": true,
+      "verified": [
+        {
+          "revision": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+          "actual": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+          "tree": "bb3a9c3ad2ee806dbff50e693af3bf591ff89bf0",
+          "matches_tested_source_tree": true
+        },
+        {
+          "revision": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+          "actual": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+          "tree": "7a2d9db558e5e82612134f721ff147bf6071cd34",
+          "matches_tested_source_tree": true
+        }
+      ]
+    },
+    {
+      "project": "pcre2",
+      "checked_at_utc": "2026-10-11T01:58:25.595018+00:00",
+      "public_clone_fetch_checkouts_and_submodule_passed": true,
+      "verified": [
+        {
+          "revision": "8e42d9ae6ba8025ea8f5bdea2ca4d3c208460cb8",
+          "actual": "8e42d9ae6ba8025ea8f5bdea2ca4d3c208460cb8",
+          "tree": "1920e680627bad56683304247a26c2e56e1a1cf6",
+          "matches_tested_source_tree": true,
+          "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+          "pinned_sljit_matches": true
+        },
+        {
+          "revision": "9c0fd64f59f70d8d97db603ae1033bf3b2e6cc64",
+          "actual": "9c0fd64f59f70d8d97db603ae1033bf3b2e6cc64",
+          "tree": "8ab388b3a78d2759141db73c2a1725305fdd21c9",
+          "matches_tested_source_tree": true,
+          "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+          "pinned_sljit_matches": true
+        }
+      ]
+    }
+  ]
+}

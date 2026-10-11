@@ -1,0 +1,3 @@
+literal target: parse status=0 (Successful completion)
+literal target: target=example.com priority=10 weight=20 port=30
+PASS literal target

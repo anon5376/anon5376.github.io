@@ -1,0 +1,14 @@
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/hiredis.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/async.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/net.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/alloc.c.o
+[ 50%] Building C object hiredis/CMakeFiles/hiredis.dir/read.c.o
+[ 60%] Building C object hiredis/CMakeFiles/hiredis.dir/sds.c.o
+[ 70%] Building C object hiredis/CMakeFiles/hiredis.dir/sockcompat.c.o
+[ 80%] Linking C static library libhiredis.a
+[ 80%] Built target hiredis
+[ 90%] Building C object CMakeFiles/hiredis-async-timeout-probe.dir/probe.c.o
+[100%] Linking C executable hiredis-async-timeout-probe
+[100%] Built target hiredis-async-timeout-probe
+ranlib: warning: 'libhiredis.a(sockcompat.c.o)' has no symbols
+ranlib: warning: 'libhiredis.a(sockcompat.c.o)' has no symbols

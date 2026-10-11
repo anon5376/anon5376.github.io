@@ -1,0 +1,73 @@
+{
+  "checked_at_utc": "2026-10-11T01:38:31.409435+00:00",
+  "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "cmake": "cmake version 4.4.3",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.0.123.102)",
+  "source_acquisition": "Exact source revisions exported with git archive from local checkouts of the public repositories. Build/run commands in the case READMEs were executed; network clone/fetch commands were not rerun.",
+  "results": [
+    {
+      "case": "json-c-before",
+      "revision": "9e99c1cfe77573496e9ea6da5153e4fd7e2cbde0",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "probe_exit": 1,
+      "output": "reset then U+0041: expected length 1 bytes 41; got length 4 bytes EF BF BD 41\nPASS incomplete high surrogate: object=NULL error=continue\n",
+      "passed": true
+    },
+    {
+      "case": "json-c-fixed",
+      "revision": "7662139501603434eba79aa7b916d1497d3d9cf4",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "probe_exit": 0,
+      "output": "PASS incomplete high surrogate: object=NULL error=continue\nPASS reset then U+0041: length=1 bytes 41\nPASS incomplete high surrogate: object=NULL error=continue\nPASS reset then lone low surrogate: length=3 bytes EF BF BD\nPASS incomplete high surrogate: object=NULL error=continue\nPASS invalid escape after high surrogate: object=NULL error=invalid string sequence\nPASS fatal error reset then U+0041: length=1 bytes 41\nPASS incomplete high surrogate: object=NULL error=continue\nPASS continued high+low surrogate: length=4 bytes F0 9D 84 9E\n",
+      "passed": true
+    },
+    {
+      "case": "libtommath-before-off",
+      "revision": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "install_exit": 1,
+      "expected_missing_path": "$COLLECTION/libtommath-parent/doc/tommath.3",
+      "reported_missing_path": "$COLLECTION/libtommath-parent/doc/tommath.3",
+      "passed": true
+    },
+    {
+      "case": "libtommath-before-on",
+      "revision": "ae40a87a920099a7d9d00979570e0c8d917a1fd7",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "install_exit": 1,
+      "expected_missing_path": "$COLLECTION/libtommath-parent/doc/tommath.3",
+      "reported_missing_path": "$COLLECTION/libtommath-parent/doc/tommath.3",
+      "passed": true
+    },
+    {
+      "case": "libtommath-fixed-off",
+      "revision": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "install_exit": 0,
+      "manpage_matches": true,
+      "passed": true,
+      "cmp_exit": 0
+    },
+    {
+      "case": "libtommath-fixed-on",
+      "revision": "a9e6bc630f7f241c503e4fe1e1189ed523feb2e6",
+      "configure_exit": 0,
+      "build_exit": 0,
+      "install_exit": 0,
+      "manpage_matches": true,
+      "passed": true,
+      "cmp_exit": 0
+    }
+  ],
+  "fixtures": {
+    "libtommath-parent/CMakeLists.txt": "d59f658faab90a0cd46cc7c441458ca21f0586babfd6cbbaf20e429f60b94caf",
+    "json-c-reset/CMakeLists.txt": "83c7d9a83da78ab8c09e4363e7fd9cedd22ca81a1e19ea6e16a867b46c4f27e7",
+    "json-c-reset/probe.c": "6fce2dd3898e82361112a975e2f88e1ff5f26b73601b808e4d857bed1e8db308"
+  }
+}

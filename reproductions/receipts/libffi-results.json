@@ -1,0 +1,117 @@
+{
+  "pr": "https://github.com/libffi/libffi/pull/1029",
+  "baseline": "bc553867367246d140cd156f060bd0409f57f157",
+  "fixed": "b83a92d0c237ef119eb1ee8d136a3d318466ca10",
+  "source_acquisition": "git archive from existing public checkouts; commit availability verified with GitHub API",
+  "probe_sha256": "c37c5ceddc51124060472b8b57fa4ec08733c30f73270e00688f5407112a2b5a",
+  "platform": "Darwin arm64",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.0.123.102)",
+  "optimization": "-O2",
+  "runs": [
+    {
+      "revision": "before",
+      "mode": "call",
+      "compile_exit": 0,
+      "probe_exit": 1,
+      "expected_exit": 1,
+      "passed": true
+    },
+    {
+      "revision": "before",
+      "mode": "closure",
+      "compile_exit": 0,
+      "probe_exit": 1,
+      "expected_exit": 1,
+      "passed": true
+    },
+    {
+      "revision": "fixed",
+      "mode": "call",
+      "compile_exit": 0,
+      "probe_exit": 0,
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "revision": "fixed",
+      "mode": "closure",
+      "compile_exit": 0,
+      "probe_exit": 0,
+      "expected_exit": 0,
+      "passed": true
+    }
+  ],
+  "builds": {
+    "before": [
+      {
+        "stage": "autogen",
+        "command": [
+          "sh",
+          "./autogen.sh"
+        ],
+        "exit": 0
+      },
+      {
+        "stage": "configure",
+        "command": [
+          "$WORK/before/source/configure",
+          "--disable-shared",
+          "--enable-static",
+          "--disable-docs",
+          "--disable-multi-os-directory",
+          "CFLAGS=-O2 -g"
+        ],
+        "exit": 0
+      },
+      {
+        "stage": "build",
+        "command": [
+          "make",
+          "-j4"
+        ],
+        "exit": 0
+      }
+    ],
+    "fixed": [
+      {
+        "stage": "autogen",
+        "command": [
+          "sh",
+          "./autogen.sh"
+        ],
+        "exit": 0
+      },
+      {
+        "stage": "configure",
+        "command": [
+          "$WORK/fixed/source/configure",
+          "--disable-shared",
+          "--enable-static",
+          "--disable-docs",
+          "--disable-multi-os-directory",
+          "CFLAGS=-O2 -g"
+        ],
+        "exit": 0
+      },
+      {
+        "stage": "build",
+        "command": [
+          "make",
+          "-j4"
+        ],
+        "exit": 0
+      }
+    ]
+  },
+  "tools": {
+    "autoconf": "autoconf (GNU Autoconf) 2.73",
+    "automake": "automake (GNU automake) 1.18.1",
+    "libtool": "glibtoolize (GNU libtool) 2.6.2",
+    "make": "GNU Make 3.81"
+  },
+  "fixture_hashes": {
+    "libffi-darwin-stack/UPSTREAM-LICENSE": "17b64dc60f3b6897a60f971e288b973f655c2edcdf08b25f3c3dd5549857881c",
+    "libffi-darwin-stack/README.md": "68f719aaef4d4265ca75196e2edc8d8e086e45d0d482f6e3c6b33cdafacf65e0",
+    "libffi-darwin-stack/probe.c": "c37c5ceddc51124060472b8b57fa4ec08733c30f73270e00688f5407112a2b5a"
+  }
+}

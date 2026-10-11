@@ -1,0 +1,223 @@
+COMMAND ["cmake", "-S", "$WORK/fixed/source", "-B", "$WORK/fixed/build", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_STATIC_LIBS=ON", "-DPCRE2_BUILD_PCRE2_8=ON", "-DPCRE2_BUILD_PCRE2_16=ON", "-DPCRE2_BUILD_PCRE2_32=ON", "-DPCRE2_SUPPORT_JIT=ON", "-DPCRE2_BUILD_TESTS=ON", "-DPCRE2_BUILD_PCRE2GREP=OFF", "-DPCRE2_SUPPORT_LIBREADLINE=OFF", "-DPCRE2_SUPPORT_LIBEDIT=OFF", "-DPCRE2_SUPPORT_LIBBZ2=OFF", "-DPCRE2_SUPPORT_LIBZ=OFF"]
+-- Using CMake version 4.4.3 (/opt/homebrew/bin/cmake)
+-- The C compiler identification is AppleClang 21.0.0.21000099
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found BZip2: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libbz2.tbd (found version "1.0.8")
+-- Looking for BZ2_bzCompressInit
+-- Looking for BZ2_bzCompressInit - found
+-- Found ZLIB: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libz.tbd (found version "1.2.12")
+-- Looking for readline
+-- Looking for readline - found
+-- Found Readline: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libreadline.tbd
+-- Found Editline: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libedit.tbd
+-- Looking for assert.h
+-- Looking for assert.h - found
+-- Looking for dirent.h
+-- Looking for dirent.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for windows.h
+-- Looking for windows.h - not found
+-- Detecting platform feature test macros
+-- Detecting platform feature test macros - none
+-- Looking for memfd_create
+-- Looking for memfd_create - not found
+-- Looking for secure_getenv
+-- Looking for secure_getenv - not found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Performing Test HAVE_STDATOMIC_H
+-- Performing Test HAVE_STDATOMIC_H - Success
+-- Performing Test HAVE_REALPATH
+-- Performing Test HAVE_REALPATH - Success
+-- Performing Test HAVE_ATTRIBUTE_UNINITIALIZED
+-- Performing Test HAVE_ATTRIBUTE_UNINITIALIZED - Success
+-- Performing Test HAVE_VISIBILITY
+-- Performing Test HAVE_VISIBILITY - Success
+-- Performing Test HAVE_BUILTIN_ASSUME
+-- Performing Test HAVE_BUILTIN_ASSUME - Failed
+-- Performing Test HAVE_BUILTIN_MUL_OVERFLOW
+-- Performing Test HAVE_BUILTIN_MUL_OVERFLOW - Success
+-- Performing Test HAVE_BUILTIN_UNREACHABLE
+-- Performing Test HAVE_BUILTIN_UNREACHABLE - Success
+-- Detecting linker version script support
+-- Performing Test HAVE_VSCRIPT_GNU
+-- Performing Test HAVE_VSCRIPT_GNU - Failed
+-- Performing Test HAVE_VSCRIPT_SUN
+-- Performing Test HAVE_VSCRIPT_SUN - Failed
+-- Detecting linker version script support - none detected
+-- Performing Test INTEL_CET_ENABLED
+-- Performing Test INTEL_CET_ENABLED - Failed
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found Python3: /opt/homebrew/Frameworks/Python.framework/Versions/3.14/bin/python3.14 (found suitable version "3.14.7", minimum required is "3.7") found components: Interpreter
+--
+--
+-- PCRE2-10.50 configuration summary:
+--
+--   Install prefix .................... : /usr/local
+--   C compiler ........................ : /usr/bin/cc
+--   C compiler flags .................. : -O3 -DNDEBUG
+--
+--   Build type ........................ : Release
+--   Build 8 bit pcre2 library ......... : ON
+--   Build 16 bit pcre2 library ........ : ON
+--   Build 32 bit pcre2 library ........ : ON
+--   Include debugging code ............ : IfDebugBuild
+--   Enable JIT compiling support ...... : ON
+--   Use SELinux allocator in JIT ...... : IGNORE
+--   Enable Unicode support ............ : ON
+--   Newline char/sequence ............. : LF
+--   \R matches only ANYCRLF ........... : OFF
+--   \C is disabled .................... : OFF
+--   EBCDIC coding ..................... : OFF
+--   EBCDIC code for NL ................ : n/a
+--   EBCDIC coding ignoring compiler ... : OFF
+--   Rebuild char tables ............... : OFF
+--   Internal link size ................ : 2
+--   Maximum variable lookbehind ....... : 255
+--   Nested parentheses limit .......... : 250
+--   Heap limit ........................ : 20000000
+--   Match limit ....................... : 10000000
+--   Match depth limit ................. : MATCH_LIMIT
+--   Build shared libs ................. : OFF
+--       with symbol versioning ........ : n/a
+--   Build static libs ................. : ON
+--       with PIC enabled .............. : OFF
+--   Build pcre2grep ................... : OFF
+--   Enable JIT in pcre2grep ........... : ON
+--   Enable callouts in pcre2grep ...... : ON
+--   Enable callout fork in pcre2grep .. : ON
+--   Initial buffer size for pcre2grep . : 20480
+--   Maximum buffer size for pcre2grep . : 1048576
+--   Build tests (implies pcre2test .... : ON
+--                and pcre2grep)
+--   Link pcre2grep with libz .......... : OFF
+--   Link pcre2grep with libbz2 ........ : OFF
+--   Link pcre2test with libeditline ... : OFF
+--   Link pcre2test with libreadline ... : OFF
+--   Enable Valgrind support ........... : OFF
+--   Fuzzer support .................... : OFF
+--   Differential fuzzer support ....... : OFF
+--   Use %zu and %td ................... : AUTO
+--
+-- Configuring done (4.9s)
+-- Generating done (0.1s)
+-- Build files have been written to: $WORK/fixed/build
+EXIT 0
+COMMAND ["cmake", "--build", "$WORK/fixed/build", "--target", "pcre2test", "--parallel", "4"]
+[  3%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_chartables.c.o
+[  3%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_auto_possess.c.o
+[  3%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_auto_possess.c.o
+[  3%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_auto_possess.c.o
+[  4%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_chartables.c.o
+[  5%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_chartables.c.o
+[  7%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_chkdint.c.o
+[  7%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_chkdint.c.o
+[  8%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_compile.c.o
+[  9%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_chkdint.c.o
+[ 10%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_compile.c.o
+[ 11%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_compile_cgroup.c.o
+[ 12%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_compile.c.o
+[ 13%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_compile_cgroup.c.o
+[ 14%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_compile_class.c.o
+[ 15%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_config.c.o
+[ 16%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_context.c.o
+[ 17%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_convert.c.o
+[ 18%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_compile_class.c.o
+[ 19%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_dfa_match.c.o
+[ 20%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_compile_cgroup.c.o
+[ 21%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_error.c.o
+[ 22%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_extuni.c.o
+[ 23%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_compile_class.c.o
+[ 25%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_find_bracket.c.o
+[ 26%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_config.c.o
+[ 27%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_context.c.o
+[ 28%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_convert.c.o
+[ 29%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_dfa_match.c.o
+[ 30%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_config.c.o
+[ 31%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_context.c.o
+[ 32%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_jit_compile.c.o
+[ 33%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_convert.c.o
+[ 34%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_error.c.o
+[ 35%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_extuni.c.o
+[ 36%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_find_bracket.c.o
+[ 37%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_maketables.c.o
+[ 38%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_dfa_match.c.o
+[ 39%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_match.c.o
+[ 40%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_jit_compile.c.o
+[ 41%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_error.c.o
+[ 42%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_extuni.c.o
+[ 43%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_find_bracket.c.o
+[ 44%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_jit_compile.c.o
+[ 45%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_match_data.c.o
+[ 46%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_match_next.c.o
+[ 47%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_newline.c.o
+[ 48%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_ord2utf.c.o
+[ 48%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_pattern_info.c.o
+[ 50%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_script_run.c.o
+[ 51%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_serialize.c.o
+[ 52%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_string_utils.c.o
+[ 53%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_maketables.c.o
+[ 54%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_match.c.o
+[ 55%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_match_data.c.o
+[ 56%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_match_next.c.o
+[ 57%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_newline.c.o
+[ 58%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_ord2utf.c.o
+[ 59%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_study.c.o
+[ 60%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_substitute.c.o
+[ 61%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_substring.c.o
+[ 62%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_tables.c.o
+[ 62%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_maketables.c.o
+[ 63%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_match.c.o
+[ 64%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_ucd.c.o
+[ 65%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_valid_utf.c.o
+[ 66%] Building C object CMakeFiles/pcre2-32-static.dir/src/pcre2_xclass.c.o
+[ 67%] Linking C static library libpcre2-32.a
+[ 67%] Built target pcre2-32-static
+[ 68%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_pattern_info.c.o
+[ 69%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_script_run.c.o
+[ 70%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_serialize.c.o
+[ 71%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_string_utils.c.o
+[ 72%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_study.c.o
+[ 73%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_substitute.c.o
+[ 73%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_substring.c.o
+[ 75%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_match_data.c.o
+[ 76%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_tables.c.o
+[ 77%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_match_next.c.o
+[ 78%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_ucd.c.o
+[ 79%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_newline.c.o
+[ 80%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_ord2utf.c.o
+[ 81%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_valid_utf.c.o
+[ 82%] Building C object CMakeFiles/pcre2-16-static.dir/src/pcre2_xclass.c.o
+[ 83%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_pattern_info.c.o
+[ 84%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_script_run.c.o
+[ 85%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_serialize.c.o
+[ 86%] Linking C static library libpcre2-16.a
+[ 87%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_string_utils.c.o
+[ 88%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_study.c.o
+[ 88%] Built target pcre2-16-static
+[ 89%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_substitute.c.o
+[ 90%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_substring.c.o
+[ 91%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_tables.c.o
+[ 92%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_ucd.c.o
+[ 93%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_valid_utf.c.o
+[ 94%] Building C object CMakeFiles/pcre2-8-static.dir/src/pcre2_xclass.c.o
+[ 95%] Linking C static library libpcre2-8.a
+[ 95%] Built target pcre2-8-static
+[ 96%] Building C object CMakeFiles/pcre2-posix-static.dir/src/pcre2posix.c.o
+[ 97%] Linking C static library libpcre2-posix.a
+[ 97%] Built target pcre2-posix-static
+[ 98%] Building C object CMakeFiles/pcre2test.dir/src/pcre2test.c.o
+[100%] Linking C executable pcre2test
+[100%] Built target pcre2test
+EXIT 0

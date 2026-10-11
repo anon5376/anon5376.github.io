@@ -1,0 +1,338 @@
+{
+  "checked_at_utc": "2026-10-11T01:58:01.858604+00:00",
+  "source_acquisition": "git archive of exact parent and pinned SLJIT submodule revisions from local public repository checkouts",
+  "platform": "macOS arm64",
+  "fixture_sha256": "a18137064874dc723cb20c822941fdae6139798780bb497901823626a610e50d",
+  "results": [
+    {
+      "state": "before",
+      "revision": "8e42d9ae6ba8025ea8f5bdea2ca4d3c208460cb8",
+      "configure_exit": 0,
+      "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+      "build_exit": 0,
+      "passed": true,
+      "results": [
+        {
+          "width": 8,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 8,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        },
+        {
+          "width": 16,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 16,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        },
+        {
+          "width": 32,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 32,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "aa",
+            "aaa",
+            "aaa",
+            "aa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "state": "fixed",
+      "revision": "9c0fd64f59f70d8d97db603ae1033bf3b2e6cc64",
+      "configure_exit": 0,
+      "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+      "build_exit": 0,
+      "passed": true,
+      "results": [
+        {
+          "width": 8,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 8,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        },
+        {
+          "width": 16,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 16,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        },
+        {
+          "width": 32,
+          "engine": "interpreter",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 0,
+          "passed": true
+        },
+        {
+          "width": 32,
+          "engine": "jit",
+          "cli_exit": 0,
+          "matches": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "expected": [
+            "baa",
+            "bbaaa",
+            "baaa",
+            "baa",
+            "xaa",
+            "bxaaa"
+          ],
+          "jit_match_markers": 6,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "compiler": "AppleClang 21.0.0.21000099",
+  "cmake": "4.4.3",
+  "logs": [
+    "pcre2-before-16-interpreter.log",
+    "pcre2-before-16-jit.log",
+    "pcre2-before-32-interpreter.log",
+    "pcre2-before-32-jit.log",
+    "pcre2-before-8-interpreter.log",
+    "pcre2-before-8-jit.log",
+    "pcre2-before-build.log",
+    "pcre2-fixed-16-interpreter.log",
+    "pcre2-fixed-16-jit.log",
+    "pcre2-fixed-32-interpreter.log",
+    "pcre2-fixed-32-jit.log",
+    "pcre2-fixed-8-interpreter.log",
+    "pcre2-fixed-8-jit.log",
+    "pcre2-fixed-build.log"
+  ],
+  "baseline_expected_matches": [
+    "aa",
+    "aaa",
+    "aaa",
+    "aa",
+    "xaa",
+    "bxaaa"
+  ],
+  "fixed_expected_matches": [
+    "baa",
+    "bbaaa",
+    "baaa",
+    "baa",
+    "xaa",
+    "bxaaa"
+  ]
+}

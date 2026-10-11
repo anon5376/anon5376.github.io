@@ -1,0 +1,35 @@
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/hiredis.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/net.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/alloc.c.o
+[ 40%] Building C object hiredis/CMakeFiles/hiredis.dir/async.c.o
+[ 50%] Building C object hiredis/CMakeFiles/hiredis.dir/read.c.o
+[ 60%] Building C object hiredis/CMakeFiles/hiredis.dir/sds.c.o
+[ 70%] Building C object hiredis/CMakeFiles/hiredis.dir/sockcompat.c.o
+[ 80%] Linking C static library libhiredis.a
+[ 80%] Built target hiredis
+[ 90%] Building C object CMakeFiles/hiredis-async-timeout-probe.dir/probe.c.o
+ranlib: warning: 'libhiredis.a(sockcompat.c.o)' has no symbols
+ranlib: warning: 'libhiredis.a(sockcompat.c.o)' has no symbols
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+$CASE/probe.c:71:34: error: use of undeclared identifier 'INADDR_LOOPBACK'
+   71 |     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+      |                                  ^~~~~~~~~~~~~~~
+6 errors generated.
+make[3]: *** [CMakeFiles/hiredis-async-timeout-probe.dir/probe.c.o] Error 1
+make[2]: *** [CMakeFiles/hiredis-async-timeout-probe.dir/all] Error 2
+make[1]: *** [CMakeFiles/hiredis-async-timeout-probe.dir/rule] Error 2
+make: *** [hiredis-async-timeout-probe] Error 2

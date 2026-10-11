@@ -117,6 +117,13 @@
         </div>
         <ul class="work-list">
           <li>
+            <h3><a href="https://github.com/redis/hiredis/pull/1379">Hiredis #1379</a></h3>
+            <div class="detail">
+              <p>Preserve pending command timeouts and libevent deadlines; apply runtime timeout changes.</p>
+              <span class="checks">Local: 187 tests passed. Full fork CI: 9/9; paired regressions: 5/5.</span>
+            </div>
+          </li>
+          <li>
             <h3><a href="https://github.com/c-ares/c-ares/pull/1326">c-ares #1326</a></h3>
             <div class="detail">
               <p>Parse compressed names in legacy DNS records. Builds on afonsojanu’s earlier approach.</p>
@@ -160,6 +167,25 @@
           <h2 id="cases-heading">Failure cases</h2>
           <p>Pinned revisions, small fixtures and before/after logs. Run them yourself.</p>
         </div>
+        <article class="case" aria-labelledby="hiredis-heading">
+          <h3 id="hiredis-heading">Hiredis · async timeout</h3>
+          <div class="detail">
+            <p>Queue more commands while a PING waits for a reply. The pending timeout must still expire. Two controls also enable and shorten it at runtime.</p>
+            <table class="result" aria-label="Hiredis pending command timeout">
+              <tbody>
+                <tr><th scope="row">Expected</th><td>Pending commands time out.</td></tr>
+                <tr><th scope="row">Before</th><td>No timeout after <code>750 ms</code> of enqueueing.</td></tr>
+                <tr><th scope="row">Fixed</th><td>Timeout fires; all queued callbacks are notified.</td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/hiredis-async-timeout/README.md">Hiredis recipe</a>
+              <a href="reproductions/receipts/hiredis-before-enqueue.log">Before log</a>
+              <a href="reproductions/receipts/hiredis-fixed-enqueue.log">Fixed log</a>
+              <a href="reproductions/receipts/hiredis-results.json">Runtime controls</a>
+            </div>
+          </div>
+        </article>
         <article class="case" aria-labelledby="json-heading">
           <h3 id="json-heading">json-c · parser reset</h3>
           <div class="detail">

@@ -1,0 +1,395 @@
+{
+  "work": "$WORK",
+  "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "probe_sha256": "864cde0e8eb901f92f698a7d40ddc18591f9136bbe58a7e1387ed9a34937488e",
+  "cmake_sha256": "37a6635e7b03af8a97d1b558ee5ced192cb0e9aa3ffd868b2aac9645b5cc8bc8",
+  "tools": {
+    "git": "git version 2.55.0",
+    "cmake": "cmake version 4.4.3",
+    "cc": "Apple clang version 21.0.0 (clang-2100.0.123.102)"
+  },
+  "runs": [
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "clone",
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/redis/hiredis.git",
+        "$WORK/before/source"
+      ],
+      "exit": 0,
+      "log": "hiredis-before-clone.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/before/source",
+        "fetch",
+        "origin",
+        "refs/pull/1379/head"
+      ],
+      "exit": 0,
+      "log": "hiredis-before-fetch.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "checkout",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/before/source",
+        "checkout",
+        "--detach",
+        "058ebcdf36c5b05b759c613564fb958ec363c90f"
+      ],
+      "exit": 0,
+      "log": "hiredis-before-checkout.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "clone",
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/redis/hiredis.git",
+        "$WORK/previous/source"
+      ],
+      "exit": 0,
+      "log": "hiredis-previous-clone.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/previous/source",
+        "fetch",
+        "origin",
+        "refs/pull/1379/head"
+      ],
+      "exit": 0,
+      "log": "hiredis-previous-fetch.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "checkout",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/previous/source",
+        "checkout",
+        "--detach",
+        "c4399445d86de001cbc1adc50782b3fb5c918736"
+      ],
+      "exit": 0,
+      "log": "hiredis-previous-checkout.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "clone",
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/redis/hiredis.git",
+        "$WORK/fixed/source"
+      ],
+      "exit": 0,
+      "log": "hiredis-fixed-clone.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/fixed/source",
+        "fetch",
+        "origin",
+        "refs/pull/1379/head"
+      ],
+      "exit": 0,
+      "log": "hiredis-fixed-fetch.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "checkout",
+      "command": [
+        "git",
+        "-C",
+        "$WORK/fixed/source",
+        "checkout",
+        "--detach",
+        "47089f79890783f8ab6f585878a50c4e1f5d9650"
+      ],
+      "exit": 0,
+      "log": "hiredis-fixed-checkout.log",
+      "expected_exit": 0,
+      "passed": true
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "$CASE",
+        "-B",
+        "$WORK/before/build",
+        "-DHIREDIS_SOURCE=$WORK/before/source",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-before-configure.log"
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "$WORK/before/build",
+        "--target",
+        "hiredis-async-timeout-probe",
+        "--parallel",
+        "4"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-before-build.log"
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "enqueue",
+      "command": [
+        "$WORK/before/build/hiredis-async-timeout-probe",
+        "--enqueue"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "log": "hiredis-before-enqueue.log"
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "enable",
+      "command": [
+        "$WORK/before/build/hiredis-async-timeout-probe",
+        "--enable"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-before-enable.log"
+    },
+    {
+      "label": "before",
+      "revision": "058ebcdf36c5b05b759c613564fb958ec363c90f",
+      "step": "shorten",
+      "command": [
+        "$WORK/before/build/hiredis-async-timeout-probe",
+        "--shorten"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-before-shorten.log"
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "$CASE",
+        "-B",
+        "$WORK/previous/build",
+        "-DHIREDIS_SOURCE=$WORK/previous/source",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-previous-configure.log"
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "$WORK/previous/build",
+        "--target",
+        "hiredis-async-timeout-probe",
+        "--parallel",
+        "4"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-previous-build.log"
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "enqueue",
+      "command": [
+        "$WORK/previous/build/hiredis-async-timeout-probe",
+        "--enqueue"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-previous-enqueue.log"
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "enable",
+      "command": [
+        "$WORK/previous/build/hiredis-async-timeout-probe",
+        "--enable"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "log": "hiredis-previous-enable.log"
+    },
+    {
+      "label": "previous",
+      "revision": "c4399445d86de001cbc1adc50782b3fb5c918736",
+      "step": "shorten",
+      "command": [
+        "$WORK/previous/build/hiredis-async-timeout-probe",
+        "--shorten"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "log": "hiredis-previous-shorten.log"
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "$CASE",
+        "-B",
+        "$WORK/fixed/build",
+        "-DHIREDIS_SOURCE=$WORK/fixed/source",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-fixed-configure.log"
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "$WORK/fixed/build",
+        "--target",
+        "hiredis-async-timeout-probe",
+        "--parallel",
+        "4"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-fixed-build.log"
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "enqueue",
+      "command": [
+        "$WORK/fixed/build/hiredis-async-timeout-probe",
+        "--enqueue"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-fixed-enqueue.log"
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "enable",
+      "command": [
+        "$WORK/fixed/build/hiredis-async-timeout-probe",
+        "--enable"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-fixed-enable.log"
+    },
+    {
+      "label": "fixed",
+      "revision": "47089f79890783f8ab6f585878a50c4e1f5d9650",
+      "step": "shorten",
+      "command": [
+        "$WORK/fixed/build/hiredis-async-timeout-probe",
+        "--shorten"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "log": "hiredis-fixed-shorten.log"
+    }
+  ],
+  "source_acquisition": "Fresh GitHub clone and PR ref fetch for each revision; detached pinned checkouts, no source edits.",
+  "initial_probe_setup_failure": {
+    "probe_sha256": "06792ee4dd5d11f3a5fd625f26cbbd48d974eaea69d2d155a450ebf4558422c3",
+    "reason": "INADDR_LOOPBACK is hidden by POSIX feature flags on macOS; probe compile failed, no library runtime failure.",
+    "exit": 2,
+    "log": "hiredis-initial-before-build.log"
+  },
+  "pr": "https://github.com/redis/hiredis/pull/1379",
+  "normalization": "Local directory prefixes replaced; trailing whitespace removed; other output retained."
+}

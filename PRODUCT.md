@@ -27,6 +27,6 @@ Use qeqx and the GitHub account anon5376. Short, concrete copy in the user's voi
 
 ## Evidence on Hand
 
-README.md records selected contributions. reproductions/ contains four cases,
+README.md records selected contributions. reproductions/ contains six cases,
 pinned source revisions, fixtures, licenses and executed before/after receipts.
 Do not claim adoption, upstream acceptance or results beyond those records.

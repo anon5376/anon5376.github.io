@@ -1,10 +1,12 @@
 # Executed results
 
-Executed on October 11, 2026: five bugs, each exercised before and after its
-patch. Every configure and build succeeded.
+Executed on October 11, 2026: six bugs, each exercised before and after its
+patch. Recorded final configure and build steps succeeded; earlier setup
+errors are noted below.
 
 | Case | Baseline | Fixed |
 | --- | --- | --- |
+| Hiredis async timeout | Enqueueing exits 1: no timeout within 750 ms; runtime controls exit 0. Intermediate PR code passes enqueueing but fails both runtime controls. | All three modes exit 0 with all queued commands timed out and no replies |
 | json-c public API client | Exit 1: expected `41`, got `EF BF BD 41` | Exit 0: reset/error-reset checks and no-reset continuation pass |
 | LibTomMath static parent install | Exit 1: parent's `doc/tommath.3` absent | Exit 0: installed manpage matches source |
 | LibTomMath shared parent install | Exit 1: parent's `doc/tommath.3` absent | Exit 0: installed manpage matches source |
@@ -26,12 +28,23 @@ misdecoded values. Some baseline padding values can vary between runs.
 acquisition, two static builds and four independent public API runs. Its
 fourteen logs are prefixed `cares-`. The client sends no DNS requests and does
 not exercise the writer or other resource-record types.
+[hiredis-results.json](hiredis-results.json) records three fresh clone/fetch
+builds and nine probe runs: original baseline, intermediate PR code and fixed
+code. Logs prefixed `hiredis-` retain each acquisition, build and run. The probe
+uses a silent loopback peer and explicitly pauses write dispatch through the
+stock poll adapter; it does not need a Redis server or exercise libevent.
+Its first probe compile used a loopback macro hidden by POSIX feature flags
+on macOS. That client-only setup failure is retained in
+[hiredis-initial-before-build.log](hiredis-initial-before-build.log); the probe
+uses the numeric loopback address in all executed runs. No hiredis source
+was changed.
 `$WORK` and `$COLLECTION` replace local directory prefixes;
 trailing whitespace is removed; other output is retained. Expected baseline errors
 are preserved.
 The libffi logs additionally replace local tool and workspace prefixes with
 `$TOOLS` and `$WORKSPACE`.
 The c-ares logs use `$CASE`, `$WORKSPACE` and `$USER_HOME` for local paths.
+The Hiredis logs use `$CASE`, `$WORK`, `$WORKSPACE` and `$USER_HOME`.
 `passed: true` means the expected outcome was observed: a specific failure on
 baseline rows, and correct execution on fixed rows.
 

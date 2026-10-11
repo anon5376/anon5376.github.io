@@ -1,0 +1,4 @@
+[ 80%] Built target hiredis
+[ 90%] Building C object CMakeFiles/hiredis-async-timeout-probe.dir/probe.c.o
+[100%] Linking C executable hiredis-async-timeout-probe
+[100%] Built target hiredis-async-timeout-probe

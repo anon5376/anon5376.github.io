@@ -7,7 +7,7 @@ wrong behavior, add a regression, make the smallest fix, and test both revisions
 
 ## Failure cases
 
-[Five reproducible cases](reproductions/README.md): json-c parser reset,
+[Six reproducible cases](reproductions/README.md): Hiredis async timeouts, json-c parser reset,
 LibTomMath parent installation, PCRE2 whole-pattern recursion and libffi's
 Darwin stack arguments, plus c-ares' compressed SRV targets. Includes pinned
 revisions, fixtures, licenses and fresh before/after logs on macOS arm64.
@@ -15,6 +15,8 @@ PCRE2 covers all three library widths with interpreter and JIT execution.
 libffi covers calls and closures against native controls on macOS arm64.
 c-ares compares compressed and literal SRV targets through its public parser,
 without sending DNS requests.
+Hiredis checks pending command deadlines and runtime timeout changes through
+its poll adapter and a silent local TCP peer; no Redis server is needed.
 
 ## Merged
 
@@ -26,6 +28,7 @@ These remain open. Test results refer to the tested revisions.
 
 | Project | Fix | Local checks |
 | --- | --- | --- |
+| [Hiredis #1379](https://github.com/redis/hiredis/pull/1379) | Preserve pending command timeouts and libevent deadlines; apply runtime timeout changes. | 187 local tests pass; full fork CI 9/9 and paired regressions 5/5 pass. |
 | [c-ares #1326](https://github.com/c-ares/c-ares/pull/1326) | Parse compressed names in legacy DNS records; builds on afonsojanu's earlier approach. | Three baseline failures; 86 parser tests and 1,110 non-live IPv4/IPv6 tests pass. |
 | [libffi #1029](https://github.com/libffi/libffi/pull/1029) | Correct Darwin ARM64 stack slots for small non-HFA structs, in calls and closures. | Independent baseline call/closure failures; 1,746 tests pass, five unsupported. |
 | [PCRE2 #1036](https://github.com/PCRE2Project/pcre2/pull/1036) | Preserve backtracking needed by whole-pattern recursion. | Baseline mismatches across 8/16/32-bit interpreter/JIT; fixed CTest 4/4 passes. |

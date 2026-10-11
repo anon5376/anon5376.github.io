@@ -7,12 +7,14 @@ wrong behavior, add a regression, make the smallest fix, and test both revisions
 
 ## Failure cases
 
-[Four reproducible cases](reproductions/README.md): json-c parser reset,
+[Five reproducible cases](reproductions/README.md): json-c parser reset,
 LibTomMath parent installation, PCRE2 whole-pattern recursion and libffi's
-Darwin stack arguments. Includes pinned
+Darwin stack arguments, plus c-ares' compressed SRV targets. Includes pinned
 revisions, fixtures, licenses and fresh before/after logs on macOS arm64.
 PCRE2 covers all three library widths with interpreter and JIT execution.
 libffi covers calls and closures against native controls on macOS arm64.
+c-ares compares compressed and literal SRV targets through its public parser,
+without sending DNS requests.
 
 ## Merged
 

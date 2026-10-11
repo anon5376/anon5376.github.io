@@ -236,7 +236,27 @@
             </div>
           </div>
         </article>
-        <p class="note">These cases were executed on macOS arm64. PCRE2 covers 8-, 16- and 32-bit libraries with interpreter and JIT execution. <a href="https://github.com/anon5376/anon5376.github.io/blob/31e8a64f72f2a2847144307657b13823babcbff9/reproductions/receipts/README.md">All receipts and scope</a>.</p>
+        <article class="case" aria-labelledby="srv-heading">
+          <h3 id="srv-heading">c-ares · SRV target</h3>
+          <div class="detail">
+            <p>A legacy DNS reply compresses its SRV target. The parser should accept it on receipt and return the same fields as the literal control.</p>
+            <table class="result" aria-label="c-ares compressed SRV target">
+              <tbody>
+                <tr><th scope="row">Expected</th><td><code>example.com</code> · port <code>30</code></td></tr>
+                <tr><th scope="row">Before</th><td><code>ARES_EBADNAME</code></td></tr>
+                <tr><th scope="row">Fixed</th><td><code>example.com</code> · port <code>30</code></td></tr>
+              </tbody>
+            </table>
+            <div class="case-links">
+              <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/c-ares-srv/README.md">c-ares recipe</a>
+              <a href="reproductions/receipts/cares-before-compressed.log">Before log</a>
+              <a href="reproductions/receipts/cares-fixed-compressed.log">Fixed log</a>
+              <a href="reproductions/receipts/cares-before-literal.log">Literal control · before</a>
+              <a href="reproductions/receipts/cares-fixed-literal.log">Literal control · fixed</a>
+            </div>
+          </div>
+        </article>
+        <p class="note">These cases were executed on macOS arm64. PCRE2 covers 8-, 16- and 32-bit libraries with interpreter and JIT execution. <a href="https://github.com/anon5376/anon5376.github.io/blob/codex/infra-failure-cases/reproductions/receipts/README.md">All receipts and scope</a>.</p>
       </section>
     </main>
     <footer>

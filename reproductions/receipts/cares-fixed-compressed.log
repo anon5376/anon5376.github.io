@@ -1,0 +1,3 @@
+compressed target: parse status=0 (Successful completion)
+compressed target: target=example.com priority=10 weight=20 port=30
+PASS compressed target

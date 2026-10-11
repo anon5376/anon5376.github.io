@@ -7,10 +7,12 @@ wrong behavior, add a regression, make the smallest fix, and test both revisions
 
 ## Failure cases
 
-[Three reproducible cases](reproductions/README.md): json-c parser reset,
-LibTomMath parent installation and PCRE2 whole-pattern recursion. Includes pinned
+[Four reproducible cases](reproductions/README.md): json-c parser reset,
+LibTomMath parent installation, PCRE2 whole-pattern recursion and libffi's
+Darwin stack arguments. Includes pinned
 revisions, fixtures, licenses and fresh before/after logs on macOS arm64.
 PCRE2 covers all three library widths with interpreter and JIT execution.
+libffi covers calls and closures against native controls on macOS arm64.
 
 ## Merged
 

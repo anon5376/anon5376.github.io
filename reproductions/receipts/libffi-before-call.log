@@ -1,0 +1,8 @@
+native target observed: longs=[1,2,3,4,5,6,7,8], before=9, mixed={f1=0x1.8p+0,f2=0x1.4p+1,i=17}, after=11
+native control result: expected=1 observed=1 (pass)
+native target observed: longs=[1,2,3,4,5,6,7,8], before=9, mixed={f1=0x1.4p+1,f2=0x1.1p-145,i=11}, after=-1978843136
+native target mismatch: mixed.f1 expected=0x1.8p+0 observed=0x1.4p+1
+native target mismatch: mixed.f2 expected=0x1.4p+1 observed=0x1.1p-145
+native target mismatch: mixed.i expected=17 observed=11
+native target mismatch: after expected=11 observed=-1978843136
+ffi_call result: expected=1 observed=0 (FAIL)

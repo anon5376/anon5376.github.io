@@ -1,0 +1,64 @@
+COMMAND ["$WORK/fixed/build/pcre2test", "-16", "-jitverify", "$COLLECTION/pcre2-recursion/cases.txt"]
+PCRE2 version 10.50-DEV 2026-11-31 (16-bit)
+# Whole-pattern recursion may backtrack through terminal iterators.
+
+/(?:b(?R)a|a+)/B
+------------------------------------------------------------------
+        Bra
+        Bra
+        b
+        Recurse
+        a
+        Alt
+        a+
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+    baa
+ 0: baa (JIT)
+    bbaaa
+ 0: bbaaa (JIT)
+    baaa
+ 0: baaa (JIT)
+
+/(?:b(?0)a|a+)/B
+------------------------------------------------------------------
+        Bra
+        Bra
+        b
+        Recurse
+        a
+        Alt
+        a+
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+    baa
+ 0: baa (JIT)
+
+# Local subroutine calls do not re-enter the whole pattern.
+
+/(?<r>b(?&r)a|x)a+/B
+------------------------------------------------------------------
+        Bra
+        CBra 1
+        b
+        Recurse
+        a
+        Alt
+        x
+        Ket
+        a++
+        Ket
+        End
+------------------------------------------------------------------
+    xaa
+ 0: xaa (JIT)
+ 1: x
+    bxaaa
+ 0: bxaaa (JIT)
+ 1: bxa
+
+EXIT 0

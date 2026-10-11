@@ -38,6 +38,29 @@
           "matches_tested_source_tree": true
         }
       ]
+    },
+    {
+      "project": "pcre2",
+      "checked_at_utc": "2026-10-11T01:58:25.595018+00:00",
+      "public_clone_fetch_checkouts_and_submodule_passed": true,
+      "verified": [
+        {
+          "revision": "8e42d9ae6ba8025ea8f5bdea2ca4d3c208460cb8",
+          "actual": "8e42d9ae6ba8025ea8f5bdea2ca4d3c208460cb8",
+          "tree": "1920e680627bad56683304247a26c2e56e1a1cf6",
+          "matches_tested_source_tree": true,
+          "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+          "pinned_sljit_matches": true
+        },
+        {
+          "revision": "9c0fd64f59f70d8d97db603ae1033bf3b2e6cc64",
+          "actual": "9c0fd64f59f70d8d97db603ae1033bf3b2e6cc64",
+          "tree": "8ab388b3a78d2759141db73c2a1725305fdd21c9",
+          "matches_tested_source_tree": true,
+          "sljit_revision": "39c508d1b8fbae332d60c7450db20236913089da",
+          "pinned_sljit_matches": true
+        }
+      ]
     }
   ]
 }

@@ -7,10 +7,10 @@ wrong behavior, add a regression, make the smallest fix, and test both revisions
 
 ## Failure cases
 
-[Two reproducible cases](reproductions/README.md): json-c parser reset and
-LibTomMath installation from a parent CMake project. Includes pinned revisions,
-public API/build fixtures, licenses and fresh logs. Three expected baseline
-failures and three fixed passes on macOS arm64. No library binaries included.
+[Three reproducible cases](reproductions/README.md): json-c parser reset,
+LibTomMath parent installation and PCRE2 whole-pattern recursion. Includes pinned
+revisions, fixtures, licenses and fresh before/after logs on macOS arm64.
+PCRE2 covers all three library widths with interpreter and JIT execution.
 
 ## Merged
 
